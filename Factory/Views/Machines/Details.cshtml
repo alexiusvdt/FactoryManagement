@@ -1,0 +1,30 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models
+@model Factory.Models.Machine
+
+<hr>
+<h4>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h4>
+<br>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>Nobody is qualified for this machine yet!</p>
+}
+else
+{
+  <h5>This machine can be operated/fixed by the following engineers:</h5>
+  <ul>
+    @foreach(EngineerMachine join in Model.JoinEntities)
+    {
+      <li><strong>@join.Engineer.Name</li>
+      @using (Html.BeginForm("DeleteJoin", "Engineers"))
+      {
+        @Html.Hidden("joinId", @join.EngineerMachineId)
+        <input type="submit" value="Delete"/>
+      }
+    }
+  </ul>
+}
