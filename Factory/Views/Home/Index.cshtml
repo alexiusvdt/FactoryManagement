@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout"
+}
+@using Registrar.Models;
+
+
+<h4>Engineers</h4>
+@if (Model["engineers"].Length == 0)
+{ 
+  <p>No engineers have been added.</p>
+}
+
+@foreach (Engineer engineer in Model["engineers"])
+{
+  @Html.ActionLink($"{@engineer.Number} / {@engineer.Name}", "Details", "Engineers", new { id = @engineer.EngineerId})<br>
+}
+
+<h4>Active machines</h4>
+@if (Model["machines"].Length == 0)
+{
+      <p>No machines have been added.</p>
+}
+
+@foreach (Machine machine in Model["machines"])
+{
+  @Html.ActionLink(@machine.Name, "Details", "Machines", new { id = @machine.MachineId})<br>
+}
