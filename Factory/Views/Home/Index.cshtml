@@ -2,6 +2,30 @@
   Layout = "_Layout";
 }
 
-<h1>Welcome to your factory information page!</h1>
-<p>@Html.ActionLink("See all Engineers", "Index", "Engineers")</p><br>
-<p>@Html.ActionLink("See all Machines", "Index", "Machines")</p>
+@using Factory.Models
+
+<h4>Engineers</h4>
+@if (Model["engineers"].Length == 0)
+{ 
+  <p>No engineers have been added.</p>
+}
+else
+{
+  @foreach (Engineer engineer in Model["engineers"])
+  {
+    @Html.ActionLink($"{@engineer.Name}", "Details", "Engineers", new { id = @engineer.EngineerId})<br>
+  }
+}
+
+<h4>Machines</h4>
+@if (Model["machines"].Length == 0)
+{
+      <p>No machines have been added.</p>
+}
+else
+{
+  @foreach (Machine machine in Model["machines"])
+  {
+    @Html.ActionLink($"{@machine.Name}", "Details", "Machines", new { id = @machine.MachineId})<br>
+  }
+}

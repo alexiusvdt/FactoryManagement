@@ -17,12 +17,11 @@ namespace Factory.Controllers
       [HttpGet("/")]
       public ActionResult Index()
       {
-        Engineer[] Engineers = _db.Engineers.ToArray();
-        Machine[] Machines = _db.Machines.ToArray();
+        Engineer[] engineers = _db.Engineers.ToArray();
+        Machine[] machines = _db.Machines.ToArray();
         Dictionary<string, object[]> model = new Dictionary<string, object[]>();
-        model.Add("Engineers", Engineers);
-        model.Add("Machines", Machines);
-        ViewBag.PageTitle = "Welcome to Dr. Sillystringz Factory!";
+        model.Add("engineers", engineers);
+        model.Add("machines", machines);
         return View(model);
       }
 
