@@ -18,7 +18,7 @@ namespace Factory.Controllers
 
     public ActionResult Index()
     {
-      ViewBag.PageTitle = "View All Engineers";
+      ViewBag.PageTitle = "View all engineers";
       List<Engineer> EngineerList = _db.Engineers.Include(engineer => engineer.JoinEntities)
           .ThenInclude(join => join.Machine).OrderByDescending(engineer => engineer.JoinEntities.Count).ToList();
 

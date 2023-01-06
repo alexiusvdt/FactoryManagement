@@ -66,7 +66,7 @@ namespace Factory.Controllers
     [HttpPost]
     public ActionResult Edit(Machine machine)
     {
-      _db.Machine.Update(machine);
+      _db.Machines.Update(machine);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }

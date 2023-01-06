@@ -1,0 +1,17 @@
+@using Factory.Models;
+
+<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+  <a class="nav-link active" data-toggle="pill" role="tab" href="/">Home</a>
+  <a class="nav-link active" data-toggle="pill" role="tab" href="/engineers">Engineers</a>
+  <a class="nav-link active" data-toggle="pill" role="tab" href="/machines">Machines</a>
+  <a class="nav-link active" data-toggle="pill" role="tab" href="/engineers/create">New Engineer</a>
+  <a class="nav-link active" data-toggle="pill" role="tab" href="/machines/create">New Machine</a>
+  
+
+  
+@using (Html.BeginForm("Search", "Home", FormMethod.Get))
+{
+  @Html.TextBox("query", "", new { @class = "form-control" })
+  <input type="submit" value="Search">
+}
+</div>

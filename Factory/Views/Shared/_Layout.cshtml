@@ -12,9 +12,8 @@
   </head>
   <body>
     @await Html.PartialAsync("Header")
-    <div>
+    @await Html.PartialAsync("Sidebar")
     @RenderBody()
-    </div>
     @await Html.PartialAsync("Footer")
   </body>
 </html>
