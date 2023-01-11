@@ -32,7 +32,7 @@ namespace Factory.Controllers
     [HttpPost]
     public ActionResult Create(Machine machine)
     {
-      // ViewBag.PageTitle = "Machines";
+      ViewBag.PageTitle = "Machines";
       if (!ModelState.IsValid)
       {
         return View(machine);
@@ -113,13 +113,13 @@ namespace Factory.Controllers
       return RedirectToAction("Index");
     }
 
-    [HttpPost, ActionName("Delete")]
+    [HttpPost]
     public ActionResult DeleteJoin(int joinId)
     {
       EngineerMachine joinEntry = _db.EngineerMachines.FirstOrDefault(entry => entry.EngineerMachineId == joinId);
       _db.EngineerMachines.Remove(joinEntry);
       _db.SaveChanges();
-      return View();
+      return RedirectToAction("Index");
     }
   }
 }
