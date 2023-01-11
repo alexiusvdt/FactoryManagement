@@ -8,9 +8,10 @@
 <h4>Add a machine to this engineer: @Html.DisplayFor(model => model.Name)</h4>
 
 <ul>
+<p>@Html.DisplayFor(model => model.Name) is qualified on the following machines already:</p>
   @foreach (EngineerMachine join in Model.JoinEntities)
   {
-      <li><strong>@join.Engineer.Name</strong></li>
+      <li><strong>@join.Machine.Name</strong></li>
     @using (Html.BeginForm("DeleteJoin", "Machines"))
     {
       @Html.Hidden("joinId", @join.EngineerMachineId)

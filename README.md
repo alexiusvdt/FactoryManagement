@@ -30,9 +30,6 @@ An application for tracking machines and their engineers
  * run the program with `dotnet run`
 
 ## Known Bugs
-
-User story 6 states: As the factory manager, I need to be able to add or remove machines that a specific engineer is licensed to repair. I also need to be able to modify this relationship from the other side, and add or remove engineers from a specific machine. Right now the user can only add an engineer to a specific machine,https://localhost:5001/Machines/Details/1, but they cannot add a machine to a specific engineer, https://localhost:5001/Engineers/Details/1. 
-
 Once you fix this you'll need to make sure the 7th user story is complete:
 I should not be able to add a machine to an engineer if there are no machines. Likewise I should not be able to add an engineer to a machine if there are no engineers.
 

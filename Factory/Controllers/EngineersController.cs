@@ -118,7 +118,7 @@ namespace Factory.Controllers
       return RedirectToAction("Index");
     }
 
-    [HttpPost]
+    [HttpPost, ActionName("Delete")]
     public ActionResult DeleteJoin(int joinId)
     {
       EngineerMachine joinEntry = _db.EngineerMachines.FirstOrDefault(entry => entry.EngineerMachineId == joinId);

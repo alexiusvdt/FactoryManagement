@@ -32,7 +32,7 @@ namespace Factory.Controllers
     [HttpPost]
     public ActionResult Create(Machine machine)
     {
-      ViewBag.PageTitle = "Machines";
+      // ViewBag.PageTitle = "Machines";
       if (!ModelState.IsValid)
       {
         return View(machine);
@@ -71,22 +71,6 @@ namespace Factory.Controllers
       return RedirectToAction("Index");
     }
 
-    public ActionResult Delete(int id)
-    {
-      Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
-      ViewBag.PageTitle = $"Delete {thisMachine.Name}";
-      return View(thisMachine);
-    }
-
-    [HttpPost, ActionName("Delete")]
-    public ActionResult DeleteConfirmed(int id)
-    {
-      Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
-      _db.Machines.Remove(thisMachine);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
-    }
-
     public ActionResult AddEngineer(int id)
     {
       Machine thisMachine = _db.Machines
@@ -111,6 +95,22 @@ namespace Factory.Controllers
         _db.SaveChanges();
       }
       return RedirectToAction("Details", new { id = machine.MachineId });
+    }
+
+    public ActionResult Delete(int id)
+    {
+      Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
+      ViewBag.PageTitle = $"Delete {thisMachine.Name}";
+      return View(thisMachine);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
+      _db.Machines.Remove(thisMachine);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
 
     [HttpPost, ActionName("Delete")]
