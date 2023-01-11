@@ -32,7 +32,7 @@ An application for tracking machines and their engineers
 ## Known Bugs
 Once you fix this you'll need to make sure the 7th user story is complete:
 I should not be able to add a machine to an engineer if there are no machines. Likewise I should not be able to add an engineer to a machine if there are no engineers.
-
+((add validation))
 
 ## License
 
