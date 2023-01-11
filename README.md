@@ -26,16 +26,22 @@ An application for tracking machines and their engineers
  * Navigate to the `Factory` directory, opening a command line interface
  * Enter `dotnet add package Microsoft.EntityFrameworkCore.Design -v 6.0.0`
  * apply the database migrations by entering `dotnet ef database update'
- * Modify the existing appsettings.json file with your details & make sure it is added to your .gitignore
+ * Modify the existing appsettings.json file with your username/password & make sure it is added to your .gitignore
  * run the program with `dotnet run`
 
 ## Known Bugs
+
+User story 6 states: As the factory manager, I need to be able to add or remove machines that a specific engineer is licensed to repair. I also need to be able to modify this relationship from the other side, and add or remove engineers from a specific machine. Right now the user can only add an engineer to a specific machine,https://localhost:5001/Machines/Details/1, but they cannot add a machine to a specific engineer, https://localhost:5001/Engineers/Details/1. 
+
+Once you fix this you'll need to make sure the 7th user story is complete:
+I should not be able to add a machine to an engineer if there are no machines. Likewise I should not be able to add an engineer to a machine if there are no engineers.
+
 
 ## License
 
 MIT License
 
-Copyright (c) 2022 Alex Johnson
+Copyright (c) 2023 Alex Johnson
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

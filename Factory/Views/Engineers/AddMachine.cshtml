@@ -1,0 +1,32 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models
+@model Factory.Models.Engineer
+
+<h4>Add a machine to this engineer: @Html.DisplayFor(model => model.Name)</h4>
+
+<ul>
+  @foreach (EngineerMachine join in Model.JoinEntities)
+  {
+      <li><strong>@join.Engineer.Name</strong></li>
+    @using (Html.BeginForm("DeleteJoin", "Machines"))
+    {
+      @Html.Hidden("joinId", @join.EngineerMachineId)
+      <input type="submit" value="Delete" />
+    }
+  }
+</ul>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.EngineerId)
+
+  @Html.Label("Select Machine")
+  @Html.DropDownList("MachineId")
+
+  <input type="submit" value="Save" />
+}
+<br>
+<p>@Html.ActionLink("Back to list", "Index")</p>
