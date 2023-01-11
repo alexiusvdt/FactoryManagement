@@ -59,8 +59,17 @@ namespace Factory.Controllers
 
     public ActionResult AddMachine(int id)
     {
-      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineers => engineers.EngineerId == id);
-      ViewBag.PageTitle = "Create Engineer";
+      //almost certain this is depricated & can be removed after checking
+      // Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineers => engineers.EngineerId == id);
+      // ViewBag.PageTitle = "Add Machine";
+      // return View(thisEngineer);
+      Engineer thisEngineer = _db.Engineers
+      .Include(engineer => engineer.JoinEntities)
+      .ThenInclude(join => join.Machine)
+      .FirstOrDefault(engineer => engineer.EngineerId == id);
+
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
+      ViewBag.PageTitle = $"Add machine to {thisEngineer.Name}'s roster";
       return View(thisEngineer);
     }
 
