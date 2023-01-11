@@ -26,7 +26,7 @@ An application for tracking machines and their engineers
  * Navigate to the `Factory` directory, opening a command line interface
  * Enter `dotnet add package Microsoft.EntityFrameworkCore.Design -v 6.0.0`
  * apply the database migrations by entering `dotnet ef database update'
- * Modify the existing appsettings.json file with your username/password & make sure it is added to your .gitignore
+ * Modify the existing appsettings.json file with your individual username and password where prompted & make sure it is added to your .gitignore
  * run the program with `dotnet run`
 
 ## Known Bugs
