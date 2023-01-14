@@ -25,14 +25,12 @@ An application for tracking machines and their engineers
  * Clone this repo 
  * Navigate to the `Factory` directory, opening a command line interface
  * Enter `dotnet add package Microsoft.EntityFrameworkCore.Design -v 6.0.0`
+  * Modify the existing appsettings.json file with your individual username and password where prompted & make sure it is added to your .gitignore
  * apply the database migrations by entering `dotnet ef database update'
- * Modify the existing appsettings.json file with your individual username and password where prompted & make sure it is added to your .gitignore
  * run the program with `dotnet run`
 
 ## Known Bugs
-Once you fix this you'll need to make sure the 7th user story is complete:
-I should not be able to add a machine to an engineer if there are no machines. Likewise I should not be able to add an engineer to a machine if there are no engineers.
-((add validation))
+
 
 ## License
 
