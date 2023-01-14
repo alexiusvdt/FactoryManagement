@@ -59,7 +59,7 @@ namespace Factory.Controllers
 
     public ActionResult AddMachine(int id)
     {
-      //almost certain this is depricated & can be removed after checking
+      //almost certain this is depricated
       // Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineers => engineers.EngineerId == id);
       // ViewBag.PageTitle = "Add Machine";
       // return View(thisEngineer);
@@ -104,7 +104,7 @@ namespace Factory.Controllers
 
     public ActionResult Delete(int id)
     {
-      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineers => engineers.EngineerId == id);
+      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
       ViewBag.PageTitle = $"Delete {thisEngineer.Name}";
       return View(thisEngineer);
     }
@@ -112,7 +112,7 @@ namespace Factory.Controllers
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineers => engineers.EngineerId == id);
+      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
       _db.Engineers.Remove(thisEngineer);
       _db.SaveChanges();
       return RedirectToAction("Index");
